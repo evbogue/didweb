@@ -8,6 +8,7 @@ app.use(cors())
 app.get('/:id', async (req, res) => {
   try {
     const check = await fetch('https://' + req.url.substring(1) + '/keys')
+    res.set('Content-Type', 'text/plain')
     res.send(await check.text())
   } catch (err) {}
 })
